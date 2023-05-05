@@ -5,15 +5,10 @@ pipeline {
             steps {
                 // Run Maven on a Unix agent.
 
-                sh "mvn clean compile"
+                sh "mvn clean install"
             }
         }
-        stage('deploy') {
 
-            steps {
-                sh "mvn package"
-            }
-        }
         stage('Build Docker image'){
 
             steps {
