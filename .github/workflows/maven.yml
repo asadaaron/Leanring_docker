@@ -30,15 +30,20 @@ jobs:
     - name: Execute Jar File
       run: sudo kill -9 `sudo lsof -t -i:8080` & sudo java -jar /home/ubuntu/actions-runner/_work/Leanring_docker/Leanring_docker/target/aws-githubactions-docker.jar &
 
-    #- name: Build & push Docker image
-    #  uses: mr-smithers-excellent/docker-build-push@v5
-    #  with:
-    #    image: asadaaron/aws-githubactions-docker
-    #    tags: latest
-    #    registry: docker.io
-    #    dockerfile: Dockerfile
-    #    username: ${{ secrets.DOCKER_USERNAME }}
-    #    password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Build the Docker image
+      uses: actions/checkout@v3
+      run: docker build . --file Dockerfile --tag aws-githubactions-docker:$(date +%s)
+
+    - name: Build & push Docker image
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+        image: asadaaron/aws-githubactions-docker
+        tags: latest
+        registry: docker.io
+        dockerfile: Dockerfile
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
 
       # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     #- name: Update dependency graph
