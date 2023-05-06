@@ -11,7 +11,7 @@ public class controller implements ErrorController {
 
     @RequestMapping(value = PATH)
     public String error() {
-        return "Error handling";
+        return "This is a trial.";
     }
 
 }
