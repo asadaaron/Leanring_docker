@@ -15,7 +15,7 @@ on:
 jobs:
   build:
 
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
@@ -31,8 +31,8 @@ jobs:
       run: sudo kill -9 `sudo lsof -t -i:8080` & sudo java -jar /home/ubuntu/actions-runner/_work/Leanring_docker/Leanring_docker/target/aws-githubactions-docker.jar &
 
 # check whether it works for pushing the image to docker hub
-    - name: Build the Docker image
-      uses: actions/checkout@v3
+   #- name: Build the Docker image
+    #  uses: actions/checkout@v3
       #run: docker build . --file Dockerfile --tag aws-githubactions-docker:$(date +%s)
 # check whether it works for pushing the imgae to docker hub
     - name: Build & push Docker image
