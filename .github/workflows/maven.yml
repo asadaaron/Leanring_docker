@@ -33,7 +33,7 @@ jobs:
 # check whether it works for pushing the image to docker hub
     - name: Build the Docker image
       uses: actions/checkout@v3
-      run: docker build . --file Dockerfile --tag aws-githubactions-docker:$(date +%s)
+      #run: docker build . --file Dockerfile --tag aws-githubactions-docker:$(date +%s)
 # check whether it works for pushing the imgae to docker hub
     - name: Build & push Docker image
       uses: mr-smithers-excellent/docker-build-push@v5
