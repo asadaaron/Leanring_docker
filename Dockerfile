@@ -1,5 +1,5 @@
-FROM openjdk:18-alpine3.13
+FROM openjdk:11
 MAINTAINER asad
 ARG JAR_FILE=target/*.jar
-COPY ./target/docker-0.0.1-SNAPSHOT.jar error-handeler.jar
-ENTRYPOINT ["java","-jar","/error-handeler.jar"]
+COPY ./target/aws-githubactions-docker.jar aws-githubactions-docker.jar
+ENTRYPOINT ["java","-jar","/aws-githubactions-docker.jar"]

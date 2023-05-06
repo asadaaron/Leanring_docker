@@ -55,6 +55,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>aws-githubactions-docker</finalName>
     </build>
 
 </project>
